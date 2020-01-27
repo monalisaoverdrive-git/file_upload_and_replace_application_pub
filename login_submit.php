@@ -7,16 +7,16 @@ session_start();
 	$mypassword = $_POST['userpass'];
 	//$mypassword variable contains the contents from the userpass field
 
-	$servername = "negron.applecorer.dreamhost.com";
+	$servername = " /*insert server address*/ ";
 	//$servername = the server address of the database for credential verification
 
-	$theuser = "summersnetuser";
+	$theuser = " /*insert db server username*/ ";
 	//$theuser = username for db server login
 
-	$thepassword = "Ur1ah5ummer5!";
+	$thepassword = " /*insert db server password*/ ";
 	//$thepassword = password for db server login
 
-	$dbname = "monalisaoverdrive";
+	$dbname = " /*insert db name*/ ";
 	//$dbname = the name of the database
 
 // Create connection
@@ -32,13 +32,13 @@ session_start();
 
 if (!empty($_POST["username"])) {
 }       
- 
+ //refresh the page if incorrect or no username 
  header('Location: login');  
 
 if (!empty($_POST["userpass"])) {
 	
 } else {  
-    
+    //refresh the page if incorrect or no username
     header('Location: login');
 }
 
@@ -47,7 +47,7 @@ $sql = "SELECT id, username, password FROM users";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
+    // check data of each row in database
     while($row = $result->fetch_assoc()) {
       
         if ($row["username"] == $myusername && $row["password"] == $mypassword) {
